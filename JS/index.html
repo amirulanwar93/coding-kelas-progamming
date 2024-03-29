@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="src/style.css"> -->
+</head>
+
+<body>
+  <!-- <h1 id="header"></h1> -->
+
+  <a href="https://www.pexels.com">Photos provided by Pexels</a>
+
+  <!-- or show our white logo -->
+
+  <a href="https://www.pexels.com">
+    <img src="https://images.pexels.com/lib/api/pexels-white.png" />
+  </a>
+
+  <!-- or show our black logo -->
+
+  <a href="https://www.pexels.com">
+    <img src="https://images.pexels.com/lib/api/pexels.png" />
+  </a>
+
+
+  This <a href="https://www.pexels.com/photo/food-dinner-lunch-meal-4147875">Photo</a> was taken by <a
+    href="https://www.pexels.com/@daria">Daria</a> on Pexels.
+  <div id="app">test</div>
+
+  <!-- <script src="src/script.js"></script> -->
+</body>
+
+<script>
+  // fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
+  //   .then((response) => response.json())
+  //   .then((json) => console.log(json));
+
+  fetch('https://api.pexels.com/v1/collections/0s3xhne'), {
+    Headers: {
+      'Authorization': 'fDgXBhfZBKpkjThbX1hbseiIvoo0NKUWIzOvvjAm2S1NW1WWlIgjBALz'
+    }
+  }
+    .then((response) => response.json())
+    .then(body => {
+      const imageList = body.photos.map((photo) => (
+        `<img src="${photo.src}"/>`
+      ));
+
+      return imageList;
+    });
+    // .then(list => {
+    //   document.getElementById('app').innerHTML = list;
+    // })
+    // .catch(err => { debugger; })
+</script>
+
+</html>

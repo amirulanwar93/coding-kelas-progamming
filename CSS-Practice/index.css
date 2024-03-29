@@ -1,0 +1,21 @@
+blockquote{
+  font-size: xx-large;
+}
+
+html{
+  background-color: bisque;
+}
+
+.box{
+  border: 3px solid red;
+}
+
+div{
+  box-sizing: content-box;
+  width: 100px;
+  padding: 20px;
+  border: 8px;
+  background-color: white;
+  border-color: black;
+  color: blueviolet;
+}

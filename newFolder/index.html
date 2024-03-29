@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="greeting">Hello World</div>
+  <div>Hello Dunia</div>
+  <div>Hello....</div>
+  <div class="kotak">
+    <p id="utama">kosong</p>
+    <div id="senaraiNama"></div>
+  </div>
+  isi maklumat
+  <input type="text" onchange="updateNama(this)" id="input" />
+
+  <button id="klik" onclick="tukarText(this); alert('dah la!')">Klik saya</button>
+</body>
+
+<script>
+  const utama = document.getElementById("utama");
+  utama.innerHTML = `<div style="color:red";">merah</div>`;
+
+
+  const senaraiNama = ['ahmad', 'abu', 'ali'];
+
+  const listSenarai = document.getElementById('senaraiNama');
+  const listNama = senaraiNama.map((nama) => `<li>${nama}</li>`);
+  listSenarai.innerHTML = listNama;
+
+  const senaraiWarna = ['red', 'green', 'blue', 'yellow', 'purple', 'brown', 'black'];
+
+  function tukarWarna(element, index = 0) {
+    element.style.color = senaraiWarna[index];
+
+    //setTimeout
+    setTimeout(() => {
+      index++;
+      if (index == senaraiWarna.length) {
+        index = 0;
+
+      }
+      // recurring function
+      tukarWarna(document.getElementById('greeting'), index);
+    }, 1000);
+  }
+
+  tukarWarna(document.getElementById('utama'));
+
+  document.getElementById('greeting').innerHTML = 'apa khabar?';
+
+  function updateNama(element) {
+
+    document.getElementById('greeting').innerHTML = `hey ${element.value}`;
+
+  }
+
+  function tukarText(element) {
+    element.innerHTML = 'dah klik';
+  }
+</script>
+
+</html>
